@@ -15,7 +15,7 @@ fi
 
 # 2. Dependencies
 echo "Installing dependencies..."
-pip3 install --user requests
+pip3 install --user requests --break-system-packages 2>/dev/null || python3 -c "import requests" 2>/dev/null || true
 
 # 3. Systemd User Directory
 mkdir -p ~/.config/systemd/user/
