@@ -6,6 +6,10 @@ BACKEND_DIR="$UBIK_DIR/backend"
 
 echo "--- Setting up UBIK Backend ---"
 
+# 0. Enable linger so user services survive SSH logout
+sudo loginctl enable-linger "$USER"
+echo "Linger enabled for $USER"
+
 # 1. Handle existing non-git directory
 if [ -d "$UBIK_DIR" ] && [ ! -d "$UBIK_DIR/.git" ]; then
     echo "Renaming existing non-git directory $UBIK_DIR to $UBIK_DIR.old"

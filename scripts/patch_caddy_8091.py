@@ -71,8 +71,7 @@ else:
 
 patched = content[:start] + NEW_BLOCK + content[end:]
 
-with open(CADDYFILE, "w") as f:
-    f.write(patched)
+subprocess.run(["sudo", "tee", CADDYFILE], input=patched.encode(), check=True, capture_output=True)
 
 print("Caddyfile patched. Reloading Caddy…")
 subprocess.run(["sudo", "systemctl", "reload", "caddy"], check=True)
