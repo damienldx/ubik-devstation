@@ -33,6 +33,6 @@ sudo chown -R caddy:caddy "$WWW_DIR" || true
 
 # 4. Patch Caddy
 echo "Patching Caddy configuration..."
-python3 "$HOME/workspace/ubik-devstation-backend/scripts/patch_caddy_8091.py"
+python3 "$(dirname "$0")/patch_caddy_8091.py"
 
 echo "--- UBIK Frontend Setup Complete ---"
